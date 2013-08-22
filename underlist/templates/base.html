@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>{% load core %}
+        <title>underlist / {% block title %}{% endblock %}</title>
+            <link rel="stylesheet" href="/static/css/bootstrap.css">
+            <link rel="stylesheet" href="/static/css/layout.css">
+    </head>
+    <body>    
+    
+    	<div class="navbar navbar-fixed-top">
+	      <div class="navbar-inner">
+	          <a href="/" class="brand">underlist</a>
+	            <ul class="nav pull-right">
+					<li><a href="{% url '' %}" data-toggle="modal">About</a></li>
+	              {% if user.is_authenticated %}
+					<li><a href="{% url '' %}" data-toggle="modal">Add</a></li>
+	              {% else %}
+	                  <li><a href="{% url 'core:login' %}">Login</a></li>
+	                  <li><a href="{% url 'core:register' %}">Register</a></li>
+	              {% endif %}
+	            </ul>
+	      </div>
+	    </div>
+    	    		
+		<div id="content">
+		
+        	{% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        	{% endif %}
+
+        {% block content %}{% endblock %}
+        
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script src="/static/js/bootstrap.min.js"></script>
+        
+	</div>
+    </body>
+</html>

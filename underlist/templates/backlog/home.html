@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}{% load backlogs %}
+	{% if user.is_authenticated %}
+		<img id="avatar" width="32" height="32" src="https://secure.gravatar.com/avatar/{{ user|email_hash }}?s=50">
+		<h2>{{ user }}</h2>
+	{% endif %}	
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+	{% with user.my_games.all as games %}
+	  {% if games %}
+	    <ul id="list" class="unstyled">
+	      {% for game in games %}
+	        <li>
+	            <a href="#" title="{{ game.game.name|safe }}"><span class="gamename">{{ game.game.name|safe }}</span> <i>{{ forloop.counter }}</i>
+	            <span class="date added">{{ game.added|date:"F jS, Y" }}</span></a>
+	        </li>
+	      {% endfor %}
+	    </ul>
+	  
+	  {% else %}
+	  	<h2> You havent added any games yet. Add some now?</h2>
+	  {% endif %}
+	{% endwith %}
+	
+{% else %}
+	
+	
+{% endif %}
+{% endblock %}

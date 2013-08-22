@@ -1,0 +1,8 @@
+<ul id="list" class="unstyled">
+	{% for object in objects %}
+	<li>
+		<a href="/browse/genres/{{ object.id }}"><span>{{ object.name|safe }}</span>
+		<i>{{ forloop.counter }}</i></a>
+	</li> 
+	{% endfor %}
+</ul>
