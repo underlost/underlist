@@ -51,42 +51,40 @@ def profile(request, username):
     return render(request, "backlog/profile.html", ctx)
 
 @login_required
-def add_list(request):
-	#add a list.
-	instance = FeedList(owner=request.user)
-	f = FeedListModelForm(request.POST or None, instance=instance)
+def add_game(request):
+	#add a game
+	instance = Game(user=request.user)
+	f = GameModelForm(request.POST or None, instance=instance)
 	if f.is_valid():
-		entry = f.save(commit=False)
-		entry.owner = request.user
-		entry.save()
-		f.save_m2m()
+		game = f.save(commit=False)
+		game.owner = request.user
+		game.save()
 		messages.add_message(
-			request, messages.INFO, 'New list created.')
+			request, messages.INFO, 'Game added.')
 		return redirect('index')
 
 	ctx = {'form': f, 'adding': True}
-	return render(request, 'aggregator/edit-list.html', ctx) 
+	return render(request, 'backlog/edit-game.html', ctx) 
 
 @login_required
-def edit_list(request, list_guid):
-	instance = get_object_or_404(FeedList, guid=list_guid, owner=request.user)
-	f = FeedListModelForm(request.POST or None, instance=instance)
+def edit_game(request, game_guid):
+	instance = get_object_or_404(Game, guid=game_guid, owner=request.user)
+	f = GameModelForm(request.POST or None, instance=instance)
 	if f.is_valid():
-		entry = f.save(commit=False)
-		entry.owner = request.user
-		entry.save()
-		f.save_m2m()
+		game = f.save(commit=False)
+		game.owner = request.user
+		game.save()
 		messages.add_message(
-			request, messages.INFO, 'List successfully edited.')
+			request, messages.INFO, 'Game successfully edited.')
 		return redirect('index')
 
 	ctx = {'form': f, 'adding': False}
-	return render(request, 'aggregator/edit-list.html', ctx) 
+	return render(request, 'backlog/edit-game.html', ctx) 
 
 @login_required
-def delete_list(request, list_guid):
-	list = get_object_or_404(FeedList, guid=list_guid, owner=request.user)
+def delete_game(request, game_guid):
+	game = get_object_or_404(Game, guid=game_guid, owner=request.user)
 	if request.method == 'POST':
-		list.delete()
-		return redirect('my-lists')
-	return render(request, 'aggregator/delete-confirm-list.html', {'list': list})
+		game.delete()
+		return redirect('index')
+	return render(request, 'backlog/delete-confirm-game.html', {'game': game})
