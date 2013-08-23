@@ -7,7 +7,8 @@ from django.contrib.sites.models import Site
 from django.utils.encoding import smart_unicode, smart_str
 from django.utils.translation import ugettext_lazy as _
 
-from underlist.core.models import Profile as User
+from django.contrib.auth.models import User
+#from underlist.core.models import Profile as User
 
 class GameManager(models.Manager):
 		
