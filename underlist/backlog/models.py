@@ -28,7 +28,7 @@ STATUS_CHOICES = (
 	
 class Game(models.Model):
 	game = models.TextField(max_length=255)
-	user = models.ForeignKey(User, related_name="my_games", verbose_name=_('user'))
+	user = models.ForeignKey(User, related_name="my_games")
 	added = models.DateTimeField(verbose_name=_("Date added"), help_text=_("Time game was added to the list"), default=datetime.datetime.now)
 	date_completed = models.DateTimeField(verbose_name=_("Completed date"), help_text=_("Date game was completed"), blank=True, null=True)
 	is_owned = models.BooleanField(help_text=_("Should be checked if you own a copy."), default=True)
