@@ -124,7 +124,7 @@ INSTALLED_APPS = (
     'south',
 
     #Internal
-    'underlist.core',
+ #   'underlist.core',
     'underlist.backlog',
     
 )
