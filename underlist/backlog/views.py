@@ -23,10 +23,10 @@ def index(request):
     	template = 'backlog/index.html'
     	games = Game.objects.filter(user=request.user)
     	ctx = {
-    	    'unplayed' : games.unplayed()
-    	    'playing' : games.playing()
-    	    'completed' : games.completed()
-    	    'givenup' : games.givenup()
+    	    'unplayed' : games.unplayed(),
+    	    'playing' : games.playing(),
+    	    'completed' : games.completed(),
+    	    'givenup' : games.givenup(),
     	}
 
     else:
