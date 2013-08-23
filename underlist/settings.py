@@ -56,10 +56,9 @@ SITE_ID = 1
 USE_I18N = False
 USE_L10N = False
 
-#AUTH_PROFILE_MODULE = 'apps.profiles.UserProfile'
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
-AUTH_USER_MODEL = 'core.Profile'
+#AUTH_USER_MODEL = 'core.Profile'
 
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
