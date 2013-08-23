@@ -7,8 +7,8 @@ from django.contrib.sites.models import Site
 from django.utils.encoding import smart_unicode, smart_str
 from django.utils.translation import ugettext_lazy as _
 
-from django.contrib.auth.models import User
-#from underlist.core.models import Profile as User
+#from django.contrib.auth.models import User
+from underlist.core.models import Profile as User
 
 class GameManager(models.Manager):
 		
@@ -16,8 +16,7 @@ class GameManager(models.Manager):
 		return super(GameManager, self).get_query_set().filter(status=3)
 
 	def played(self):
-		#return super(GameManager, self).get_query_set().filter(status=2,3,4)
-		pass
+		Return super(GameManager, self).get_query_set().filter(status=[2,3,4])
 
 STATUS_CHOICES = (
 	(1, u'Unplayed'),
