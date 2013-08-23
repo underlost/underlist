@@ -50,6 +50,11 @@ def profile(request, username):
     }
     return render(request, "backlog/profile.html", ctx)
 
+def game_detail(request, game_guid):
+	game = get_object_or_404(Game, guid=game_guid)
+	ctx = { 'game':game }
+	return render(request, "backlog/game.html", ctx)
+
 @login_required
 def add_game(request):
 	#add a game
