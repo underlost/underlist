@@ -16,8 +16,8 @@ class GameManager(models.Manager):
 		return super(GameManager, self).get_query_set().filter(status=3)
 
 	def played(self):
-		return super(GameManager, self).get_query_set().filter(status=2,3,4)
-
+		#return super(GameManager, self).get_query_set().filter(status=2,3,4)
+		pass
 
 STATUS_CHOICES = (
 	(1, u'Unplayed'),

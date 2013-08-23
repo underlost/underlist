@@ -13,7 +13,6 @@ gb = giantbomb.Api('a93fd9904abaec420c9a364fa4602b45d45c2358')
 def private(request):
     return TemplateResponse(request, 'core/private.html', None)
 
-
 def register(request):
     if not settings.ALLOW_NEW_REGISTRATIONS:
         messages.error(request, "The admin of this service is not "
