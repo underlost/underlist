@@ -43,10 +43,10 @@ def profile(request, username):
     ctx = {
         'user_obj': u,
         'email_hash': hashlib.md5(u.email).hexdigest(),
-        'unplayed' = games.unplayed()
-        'playing' = games.playing()
-        'completed' = games.completed()
-        'givenup' = games.givenup()
+        'unplayed' : games.unplayed(),
+        'playing' : games.playing(),
+        'completed' : games.completed(),
+        'givenup' : games.givenup(),
     }
     return render(request, "backlog/profile.html", ctx)
 
