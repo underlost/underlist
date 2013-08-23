@@ -123,7 +123,6 @@ INSTALLED_APPS = (
     'djcelery',
     'gunicorn',
     'south',
-    'storages',
 
     #Internal
     'underlist.core',
