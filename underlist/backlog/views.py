@@ -35,7 +35,7 @@ def index(request):
     return render(request, template, ctx)
 
 
-def profile(request, username):
+def user_detail(request, username):
    
     u = get_object_or_404(User, username=username)
     games = Game.objects.filter(user=u)
