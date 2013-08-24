@@ -50,7 +50,7 @@ def user_detail(request, username):
     }
     return render(request, "backlog/profile.html", ctx)
 
-def game_detail(request, game_guid):
+def game_detail(request, username, game_guid):
 	game = get_object_or_404(Game, guid=game_guid)
 	ctx = { 'game':game }
 	return render(request, "backlog/game.html", ctx)
