@@ -2,12 +2,12 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 
-#admin.autodiscover()
+admin.autodiscover()
 
 urlpatterns = patterns('',
-    #url(r'^adminy/', include(admin.site.urls)),
-    url(r'^', include('underlist.core.urls')),
-	url(r'^', include('underlist.backlog.urls')),
+    url(r'^admin22/', include(admin.site.urls)),
+    url(r'^', include('underlist.core.urls'), namespace='core'),
+	url(r'^', include('underlist.backlog.urls'), namespace='backlog'),
 )
 
 urlpatterns += patterns('',
