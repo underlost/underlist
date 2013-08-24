@@ -126,5 +126,4 @@ INSTALLED_APPS = (
     #Internal
     'underlist.core',
     'underlist.backlog',
-    
 )

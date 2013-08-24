@@ -12,8 +12,17 @@ from underlist.core.models import Profile as User
 
 class GameManager(models.Manager):
 		
+	def unplayed(self):
+		return super(GameManager, self).get_query_set().filter(status=1)
+
+	def Playing(self):
+		return super(GameManager, self).get_query_set().filter(status=2)
+
 	def completed(self):
 		return super(GameManager, self).get_query_set().filter(status=3)
+
+	def givenup(self):
+		return super(GameManager, self).get_query_set().filter(status=4)
 
 	def played(self):
 		return super(GameManager, self).get_query_set().filter(status=[2,3,4])
