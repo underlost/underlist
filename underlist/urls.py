@@ -6,8 +6,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin22/', include(admin.site.urls)),
-    url(r'^', include('underlist.core.urls'), namespace='core'),
-	url(r'^', include('underlist.backlog.urls'), namespace='backlog'),
+    url(r'^', include('underlist.core.urls', namespace='core')),
+	url(r'^', include('underlist.backlog.urls', namespace='backlog')),
 )
 
 urlpatterns += patterns('',
