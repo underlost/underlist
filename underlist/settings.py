@@ -121,10 +121,10 @@ INSTALLED_APPS = (
     #Prancing on Heroku
     'djcelery',
     'gunicorn',
-    #'south',
+    'south',
 
     #Internal
- #   'underlist.core',
+    'underlist.core',
     'underlist.backlog',
     
 )
