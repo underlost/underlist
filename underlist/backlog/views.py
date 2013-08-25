@@ -23,10 +23,10 @@ def index(request):
     	template = 'backlog/index.html'
     	games = Game.objects.filter(user=request.user)
     	ctx = {
-    	    'unplayed' : games.unplayed(),
-    	    'playing' : games.playing(),
-    	    'completed' : games.completed(),
-    	    'givenup' : games.givenup(),
+    	    'unplayed' : Game.objects.unplayed().filter(user=request.user),
+    	    'playing' : Game.objects.playing().filter(user=request.user),
+    	    'completed' : Game.objects.completed().filter(user=request.user),
+    	    'givenup' : Game.objects.givenup().filter(user=request.user),
     	}
 
     else:
@@ -43,10 +43,10 @@ def user_detail(request, username):
     ctx = {
         'user_obj': u,
         'email_hash': hashlib.md5(u.email).hexdigest(),
-        'unplayed' : games.unplayed(),
-        'playing' : games.playing(),
-        'completed' : games.completed(),
-        'givenup' : games.givenup(),
+        'unplayed' : Game.objects.unplayed().filter(user=u),
+        'playing' : Game.objects.playing().filter(user=u),
+        'completed' : Game.objects.completed().filter(user=u),
+        'givenup' : Game.objects.givenup().filter(user=u),
     }
     return render(request, "backlog/profile.html", ctx)
 
