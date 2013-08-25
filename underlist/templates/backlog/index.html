@@ -1,32 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h4>Unplayed</h4>
-<ul class="liist-unstyled">
-{% for game in unplayed %}
- <li>game</li>
-{% endfor %}
-</ul>
+<div class="row">
 
-<h4>Playing</h4>
-<ul class="liist-unstyled">
-{% for game in playing %}
- <li>game</li>
-{% endfor %}
-</ul>
+	<div class="col-md-4">	
+	<h4>Unplayed</h4>
+	<ul class="liist-unstyled">
+	{% for game in unplayed %}
+	 <li>game</li>
+	 {% empty %}
+	 <li>None</li>
+	{% endfor %}
+	</ul>
+	</div>
 
-<h4>Completed</h4>
-<ul class="liist-unstyled">
-{% for game in completed %}
- <li>game</li>
-{% endfor %}
-</ul>
+	<div class="col-md-4">
+	<h4>Playing</h4>
+	<ul class="liist-unstyled">
+	{% for game in playing %}
+	 <li>game</li>
+	 {% empty %}
+	 <li>None</li>
+	{% endfor %}
+	</ul>
+	</div>
 
-<h4>Given up</h4>
-<ul class="liist-unstyled">
-{% for game in givenup %}
- <li>game</li>
-{% endfor %}
-</ul>
+	<div class="col-md-4">
+	<h4>Completed</h4>
+	<ul class="liist-unstyled">
+	{% for game in completed %}
+	 <li>game</li>
+	 {% empty %}
+	 <li>None</li>
+	{% endfor %}
+	</ul>
+	</div>
 
+	<div class="col-md-4">
+	<h4>Given up</h4>
+	<ul class="liist-unstyled">
+	{% for game in givenup %}
+	 <li>game</li>
+	 {% empty %}
+	 <li>None</li>
+	{% endfor %}
+	</ul>
+	</div>
+
+</div>
 {% endblock %}
