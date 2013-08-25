@@ -1,4 +1,6 @@
+{% extends 'base.html' %}
 
+{% block content %}
 <h4>Unplayed</h4>
 <ul class="liist-unstyled">
 {% for game in unplayed %}
@@ -26,3 +28,5 @@
  <li>game</li>
 {% endfor %}
 </ul>
+
+{% endblock %}
