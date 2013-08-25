@@ -15,7 +15,7 @@ class GameManager(models.Manager):
 	def unplayed(self):
 		return super(GameManager, self).get_query_set().filter(status=1)
 
-	def Playing(self):
+	def playing(self):
 		return super(GameManager, self).get_query_set().filter(status=2)
 
 	def completed(self):
