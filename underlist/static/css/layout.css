@@ -1,5 +1,4 @@
 /* @override 
-	http://media.underlist.net/static/css/layout.css
 	http://underlist.herokuapp.com/static/css/layout.css
 */
 
@@ -9,4 +8,8 @@ html, body {
 
 body {
 	color: #333;
+}
+
+.col-md-6 h4 {
+	border-bottom: 1px solid #999;
 }
